@@ -64,10 +64,10 @@ const RecipeForm: React.FC<RecipeFormProps> = ({ onAdd }) => {
         <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
       </div>
       <div className="flex justify-between">
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button type="submit" className="bg-accent-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
           Добавить
         </button>
-        <button type="button" onClick={handleBack} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+        <button type="button" onClick={handleBack} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
           Назад к рецептам
         </button>
       </div>

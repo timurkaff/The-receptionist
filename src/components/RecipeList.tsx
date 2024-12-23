@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { recipeStore } from '../models/RecipeStore';
 import RecipeCard from './RecipeCard';
 import Confetti from 'react-confetti';
+import Snowfall from 'react-snowfall';
 
 const RecipeList: React.FC = observer(() => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -19,9 +20,10 @@ const RecipeList: React.FC = observer(() => {
 
   return (
     <div className="relative">
+      <Snowfall snowflakeCount={100} />
       {showConfetti && <Confetti />}
       <div className="mb-4 flex justify-end">
-        <button onClick={handleRandomRecipe} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        <button onClick={handleRandomRecipe} className="bg-accent-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
           Выбрать случайный рецепт
         </button>
       </div>

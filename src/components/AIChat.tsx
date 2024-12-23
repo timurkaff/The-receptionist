@@ -22,7 +22,7 @@ const AIChat: React.FC = () => {
     setRecipe('');
 
     try {
-      const prompt = `Напиши рецепт, используя следующие ингредиенты: ${ingredients}.`;
+      const prompt = `Напиши очень краткий рецепт, используя следующие ингредиенты: ${ingredients}.`;
       const result = await model.generateContent(prompt);
       const response = result.response;
       const recipeText = response.text();
@@ -49,10 +49,14 @@ const AIChat: React.FC = () => {
     }
   };
 
+  const handleBack = () => {
+    navigate('/');
+  };
+
   return (
     <div className="bg-white shadow-md rounded-lg p-4">
       <h2 className="text-xl font-bold mb-4">AI Чат</h2>
-      <form onSubmit={handleSubmit} className="mb-4">
+      <form onSubmit={handleSubmit}>
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Введите ингредиенты (через запятую):
         </label>
@@ -63,9 +67,14 @@ const AIChat: React.FC = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           required
         />
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+        <div className="flex justify-between mt-5">
+        <button type="submit" className="bg-accent-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2 transition-colors duration-300">
           Найти рецепт
         </button>
+        <button onClick={handleBack} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-2 transition-colors duration-300">
+              Назад к рецептам
+          </button>
+        </div>
       </form>
       {loading && <div className="text-gray-700">Загрузка...</div>}
       {error && <div className="text-red-500">{error}</div>}
@@ -73,9 +82,11 @@ const AIChat: React.FC = () => {
         <div className="text-gray-700 mt-4">
           <strong>Рецепт:</strong>
           <p>{recipe}</p>
-          <button onClick={handleAddRecipe} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2">
-            Выбрать рецепт
-          </button>
+          <div className="flex gap-2">
+            <button onClick={handleAddRecipe} className="bg-accent-gold hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-2 transition-colors duration-300">
+              Выбрать рецепт
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -17,10 +17,10 @@ const Filter: React.FC = observer(() => {
         />
       </div>
       <div className="flex gap-2">
-        <Link to="/add" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <Link to="/add" className="bg-accent-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
           Добавить рецепт
         </Link>
-        <Link to="/ai/recipe" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        <Link to="/ai/recipe" className="bg-accent-gold hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
           AI рецепт
         </Link>
       </div>
